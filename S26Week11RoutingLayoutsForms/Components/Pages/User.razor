@@ -1,8 +1,28 @@
-﻿@page "/user/{id:int}"
+﻿@page "/user"
+@page "/user/{id:int}"
+@page "/user/{id:int}/{name}"
 
-<h3>User ID: @Id</h3>
+@if (Id != null)
+{
+    @if (Name != null)
+    {
+        <h3>User ID: @Id, Name: @Name</h3>
+    }
+    else
+    {
+        <h3>User ID: @Id</h3>
+    }
+}
+else
+{
+    <h3>User Guest</h3>
+}
+
 
 @code {
     [Parameter]
     public int? Id { get; set; }
+
+    [Parameter]
+    public string? Name { get; set; }
 }
