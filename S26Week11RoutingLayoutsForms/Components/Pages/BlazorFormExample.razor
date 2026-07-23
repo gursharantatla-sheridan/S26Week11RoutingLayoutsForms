@@ -13,6 +13,18 @@
     <button type="submit">Submit</button>
 </EditForm>
 
+<h4>Submitted Product:</h4>
+
+@if (submittedProduct != null)
+{
+    <p>Name = @submittedProduct.Name</p>
+    <p>Price = @submittedProduct.Price.ToString("C")</p>
+}
+else
+{
+    <p>No product submitted</p>
+}
+
 
 @code {
     ProductModel product = new ProductModel();
