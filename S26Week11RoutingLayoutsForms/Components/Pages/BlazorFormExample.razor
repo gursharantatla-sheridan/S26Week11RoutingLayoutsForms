@@ -4,13 +4,18 @@
 <h3>Blazor Form Example</h3>
 
 <EditForm FormName="ProductForm" Model="product" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
     <label>Name: </label>
-    <InputText @bind-Value="product.Name" /> <br /><br />
+    <InputText @bind-Value="product.Name" /> 
+    <ValidationMessage For="@(() => product.Name)" /><br /><br />
 
     <label>Price: </label>
-    <InputNumber @bind-Value="product.Price" /> <br /><br />
+    <InputNumber @bind-Value="product.Price" /> 
+    <ValidationMessage For="@(() => product.Price)" /><br /><br />
 
-    <button type="submit">Submit</button>
+    <button type="submit">Submit</button> <br /><br />
 </EditForm>
 
 <h4>Submitted Product:</h4>
